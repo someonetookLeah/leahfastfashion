@@ -24,7 +24,17 @@
                 <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
             <br>
+
+            <p>
+                {{ form.rating.label }}<br>
+                {{ form.rating() }}<br>
+                {% for error in form.rating.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
             {{form.submit()}}
         </form>
         
+       
 {% endblock %}

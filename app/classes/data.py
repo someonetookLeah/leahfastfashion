@@ -31,6 +31,9 @@ class User(UserMixin, Document):
     email = EmailField()
     image = FileField()
     prononuns = StringField()
+    role = StringField()
+    age = IntField()
+
 
     meta = {
         'ordering': ['lname','fname']
@@ -43,6 +46,8 @@ class Blog(Document):
     tag = StringField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
+    
+
 
     meta = {
         'ordering': ['-createdate']
@@ -56,8 +61,25 @@ class Comment(Document):
     comment = ReferenceField('Comment',reverse_delete_rule=CASCADE)
     # Line 68 is where you store all the info you need but won't find in the Course and Teacher Object
     content = StringField()
+    rating = StringField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+
+class Cloth(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    subject = StringField()
+    content = StringField()
+    size = StringField()
+    type = StringField()
+    color = StringField()
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+    
+
 
     meta = {
         'ordering': ['-createdate']

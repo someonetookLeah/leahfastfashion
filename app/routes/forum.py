@@ -176,7 +176,8 @@ def commentNew(blogID):
         newComment = Comment(
             author = current_user.id,
             blog = blogID,
-            content = form.content.data
+            content = form.content.data,
+            rating = form.rating.data
         )
         newComment.save()
         return redirect(url_for('blog',blogID=blogID))
@@ -189,16 +190,18 @@ def commentEdit(commentID):
     if current_user != editComment.author:
         flash("You can't edit a comment you didn't write.")
         return redirect(url_for('blog',blogID=editComment.blog.id))
-    blog = Bog.objects.get(id=editComment.blog.id)
+    blog = Blog.objects.get(id=editComment.blog.id)
     form = CommentForm()
     if form.validate_on_submit():
         editComment.update(
             content = form.content.data,
-            modifydate = dt.datetime.utcnow
+            modifydate = dt.datetime.utcnow,
+            rating = form.rating.data
         )
         return redirect(url_for('blog',blogID=editComment.blog.id))
 
     form.content.data = editComment.content
+    form.rating.data = editComment.content
 
     return render_template('commentform.html',form=form,blog=blog)   
 
