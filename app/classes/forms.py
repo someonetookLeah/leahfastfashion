@@ -31,4 +31,10 @@ class ClothingForm(FlaskForm):
     color = SelectField('Color', choices=[('White','White'),('Black','Black'),('Red','Red')])
     size = SelectField('Size', choices=[('Small','Small'),('Medium','Medium'),('Large','Large')])
     submit = SubmitField('Add')
-    
+
+class EventForm(FlaskForm): 
+    day = StringField('Day', validators=[DataRequired()])
+    time = StringField('Time', validators=[DataRequired()])
+    location = StringField('Location', validators=[DataRequired()])
+    description = StringField('Description', validators=[DataRequired()])
+    submit = SubmitField('Submit')

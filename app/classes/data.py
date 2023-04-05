@@ -84,3 +84,20 @@ class Cloth(Document):
     meta = {
         'ordering': ['-createdate']
     }
+
+class Event(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    ##subject = StringField()
+    ##content = StringField()
+    day = StringField()
+    time = StringField()
+    location = StringField()
+    description = StringField()
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+    
+
+
+    meta = {
+        'ordering': ['-createdate']
+    }
