@@ -12,10 +12,10 @@
     {% endif %}
     <br>
     {% if event.author == current_user %}
-        <a data-toggle="tooltip" data-placement="top" title="Delete Post" href="/event/delete/{{event.id}}">
+        <a data-toggle="tooltip" data-placement="top" title="Delete Event" href="/event/delete/{{event.id}}">
             <img width="40" class="bottom-image" src="/static/delete.png">
         </a>
-        <a data-toggle="tooltip" data-placement="top" title="Edit Post" href="/event/edit/{{event.id}}">
+        <a data-toggle="tooltip" data-placement="top" title="Edit Event" href="/event/edit/{{event.id}}">
             <img width="40" class="bottom-image" src="/static/edit.png">
         </a>
     {% endif %}
@@ -25,13 +25,16 @@
         {% if event.author.image %}
             <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(event.author.image.read())}}">
         {% endif %}
-            {{event.color}} <br>
-            {{event.size}}
+            <p>When will the clothing swap take place?</p> {{event.day}} <br><br>
+            <p>At what time?</p>{{event.time}} <br><br>
+            <p>Where?</p>{{event.location}} <br><br>
+            <p>What else do I need to know?</p>{{event.description}} <br><br>
 
     </p>
-    {% endblock %}
+   
 
-    <!--{% if comments %}
+
+    {% if comments %}
     <h1 class="display-5">Comments</h1>
     {% for comment in comments %}
         {% if current_user == comment.author %}

@@ -44,7 +44,7 @@ def EventNew():
     return render_template('eventform.html', form=form)
 
 #edit ur event
-@app.route('/event/edit/<clothID>', methods=['GET', 'POST'])
+@app.route('/event/edit/<eventID>', methods=['GET', 'POST'])
 @login_required
 def eventEdit(eventID):
     editEvent = Event.objects.get(id=eventID)

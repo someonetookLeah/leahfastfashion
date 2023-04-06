@@ -9,7 +9,7 @@
         <h1 class="display-1">All Events</h1>
     </div>
     <div class="col">
-        <a href="/events/new" class="btn btn-primary btn-sm mt-5" role="button">New Post</a>
+        <a href="/event/new" class="btn btn-primary btn-sm mt-5" role="button">New Event</a>
     </div>
 </div>
 
@@ -21,21 +21,21 @@
                 <h3 class="display-5">Date</h3>
                 {% endif %}
 
-                <a href="/cloth/{{cloth.id}}">
-                    {{moment(cloth.create_date).calendar()}}
+                <a href="/event/{{event.id}}">
+                    {{moment(event.create_date).calendar()}}
                 </a>
             </div>
             <div class="col-2">
                 {% if loop.index == 1 %}
                 <h3 class="display-5">User</h3>
                 {% endif %}
-                {{cloth.author.fname}} {{cloth.author.lname}}
+                {{event.author.fname}} {{event.author.lname}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
                     <h3 class="display-5">Subject</h3>
                 {% endif %}
-                {{cloth.subject}}
+                {{event.subject}}
             </div>
         </div>
 
