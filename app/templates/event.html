@@ -25,10 +25,10 @@
         {% if event.author.image %}
             <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(event.author.image.read())}}">
         {% endif %}
-            <p>When will the clothing swap take place?</p> {{event.day}} <br><br>
-            <p>At what time?</p>{{event.time}} <br><br>
-            <p>Where?</p>{{event.location}} <br><br>
-            <p>What else do I need to know?</p>{{event.description}} <br><br>
+            <p>When will the clothing swap take place?</p> <span style="color:blue">{{event.day}}</span> <br><br>
+            <p>At what time?</p>  <span style="color:blue">{{event.time}}</span><br><br>
+            <p>Where?</p><span style="color:blue">{{event.location}}</span><br><br>
+            <p>What else do I need to know?</p><span style="color:blue">{{event.description}}</span><br><br>
 
     </p>
    
