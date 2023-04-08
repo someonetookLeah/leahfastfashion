@@ -5,6 +5,16 @@
 
         <form method=post>
             {{ form.hidden_tag() }}
+            <!--curr wokring on-->
+            <p>
+                {{ form.image.label }} <br>
+                {{ form.image() }}
+                <!--List the errors for this field-->
+                {% for error in form.image.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
             <p>
                 {{ form.subject.label }} <br>
                 {{ form.subject(size=64) }}
