@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block body %}
+        <h1></h1>
+
+        <form method=post>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.day.label }} <br>
+                {{ form.day(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.day.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.time.label }} <br>
+                {{ form.time(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.time.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.location.label }} <br>
+                {{ form.location(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.location.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.description.label }} <br>
+                {{ form.description(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.description.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{form.submit()}}
+            </p>
+        </form>
+        
+{% endblock %}
