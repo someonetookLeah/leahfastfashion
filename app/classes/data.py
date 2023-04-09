@@ -41,6 +41,11 @@ class User(UserMixin, Document):
     
 class Blog(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    
+    #curr working on
+    image = FileField()
+    size = StringField()
+
     subject = StringField()
     content = StringField()
     tag = StringField()

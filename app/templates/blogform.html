@@ -5,6 +5,16 @@
 
         <form method=post>
             {{ form.hidden_tag() }}
+            <!--curr wokring on-->
+            <p>
+                {{ form.image.label }} <br>
+                {{ form.image() }}
+                <!--List the errors for this field-->
+                {% for error in form.image.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
             <p>
                 {{ form.subject.label }} <br>
                 {{ form.subject(size=64) }}
@@ -29,6 +39,29 @@
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
+
+<div class="row">
+    <div class="col-1">
+            <p>
+                {{ form.size.label }} <br>
+                {{ form.size(size=1) }}
+                <!--List the errors for this field-->
+                {% for error in form.size.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+    </div>
+    <div class="col">
+            <p>
+                {{ form.color.label }} <br>
+                {{ form.color(size=1) }}
+                <!--List the errors for this field-->
+                {% for error in form.color.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+</div>
+</div>
 
             <p>
                 {{form.submit()}}

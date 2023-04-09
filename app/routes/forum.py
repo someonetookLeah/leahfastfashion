@@ -98,12 +98,21 @@ def blogNew():
             subject = form.subject.data,
             content = form.content.data,
             tag = form.tag.data,
+            image = form.image.data,
+            size = form.size.data,
+            color = form.color.data,
             author = current_user.id,
+
             # This sets the modifydate to the current datetime.
             modify_date = dt.datetime.utcnow
         )
         # This is a method that saves the data to the mongoDB database.
-        newBlog.save()
+        #newBlog.save()
+
+        #curr working on
+        if form.image.data:
+            newBlog.image.put(form.image.data, content_type = 'image/jpeg')
+            newBlog.save()
 
         # Once the new blog is saved, this sends the user to that blog using redirect.
         # and url_for. Redirect is used to redirect a user to different route so that 
@@ -145,6 +154,14 @@ def blogEdit(blogID):
             tag = form.tag.data,
             modify_date = dt.datetime.utcnow
         )
+    #curr working on
+        if form.image.data:
+            if editBlog.image:
+                editBlog.image.delete()
+            editBlog.image.put(form.image.data, content_type = 'image/jpeg')
+            # This saves all the updates
+            editBlog.save()
+            
         # After updating the document, send the user to the updated blog using a redirect.
         return redirect(url_for('blog',blogID=blogID))
 
