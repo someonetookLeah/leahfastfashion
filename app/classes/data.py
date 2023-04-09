@@ -32,7 +32,7 @@ class User(UserMixin, Document):
     image = FileField()
     prononuns = StringField()
     role = StringField()
-    age = IntField()
+    age = StringField()
 
 
     meta = {

@@ -14,8 +14,8 @@ class ProfileForm(FlaskForm):
     image = FileField("Image") 
     submit = SubmitField('Post')
     role = SelectField('Role', choices=[("Teacher","Teacher"),("Student","Student")])
-    age = SelectField('Age', choices=[(17, 17,),(18,18),("old","old")])
-
+    age = SelectField('Age', choices=[("Freshman", "Freshman",),("Sophomore","Sophomore"),("Junior","Junior"),("Senior","Senior"),("Teacher","Teacher")])
+    ##age = SelectField('Age', choices=[(17,17),(18,18),("old","old")])
 class BlogForm(FlaskForm):
     #curr working on
     image = FileField("Image")
@@ -30,7 +30,7 @@ class BlogForm(FlaskForm):
 
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
-    rating = SelectField('Rating', choices=[('Good',"Good"),('OK','OK'),('Bad','Bad')])
+    rating = SelectField('Rating', choices=[('1-Good',"1-Good"),('2-OK','2-OK'),('3-Bad','3-Bad')])
     submit = SubmitField('Comment')
 
 class ClothingForm(FlaskForm):
