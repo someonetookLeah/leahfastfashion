@@ -19,6 +19,7 @@ class ProfileForm(FlaskForm):
 class BlogForm(FlaskForm):
     #curr working on
     image = FileField("Image")
+    size = SelectField("Size", choices=[('Small','Small'),('Medium','Medium'),('Large','Large')])
 
     subject = StringField('Subject', validators=[DataRequired()])
     content = TextAreaField('Blog', validators=[DataRequired()])

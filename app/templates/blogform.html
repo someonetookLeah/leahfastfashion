@@ -41,6 +41,15 @@
             </p>
 
             <p>
+                {{ form.size.label }} <br>
+                {{ form.size(size=1) }}
+                <!--List the errors for this field-->
+                {% for error in form.size.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
+            <p>
                 {{form.submit()}}
             </p>
         </form>
