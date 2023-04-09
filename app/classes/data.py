@@ -45,6 +45,8 @@ class Blog(Document):
     #curr working on
     image = FileField()
     size = StringField()
+    color = StringField()
+    sale = StringField()
 
     subject = StringField()
     content = StringField()

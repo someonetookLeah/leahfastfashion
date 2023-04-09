@@ -60,6 +60,16 @@
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
+    </div>
+    <div class="col-10">
+        <p>
+            {{ form.sale.label }} <br>
+            {{ form.sale(size=1) }}
+            <!--List the errors for this field-->
+            {% for error in form.sale.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
 </div>
 </div>
 

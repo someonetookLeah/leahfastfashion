@@ -101,13 +101,14 @@ def blogNew():
             image = form.image.data,
             size = form.size.data,
             color = form.color.data,
+            sale = form.sale.data,
             author = current_user.id,
 
             # This sets the modifydate to the current datetime.
             modify_date = dt.datetime.utcnow
         )
         # This is a method that saves the data to the mongoDB database.
-        #newBlog.save()
+        newBlog.save()
 
         #curr working on
         if form.image.data:
@@ -152,6 +153,9 @@ def blogEdit(blogID):
             subject = form.subject.data,
             content = form.content.data,
             tag = form.tag.data,
+            image = form.image.data,
+            size = form.size.data,
+            color = form.color.data,
             modify_date = dt.datetime.utcnow
         )
     #curr working on

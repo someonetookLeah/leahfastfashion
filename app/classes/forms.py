@@ -21,6 +21,7 @@ class BlogForm(FlaskForm):
     image = FileField("Image")
     size = SelectField("Size", choices=[('Small','Small'),('Medium','Medium'),('Large','Large')])
     color = SelectField("Color", choices=[('Red','Red'),('Orange','Orange'),('Yellow','Yellow'),('Green','Green')])
+    sale = SelectField("Swap or Giveaway", choices=[('Swap','Swap'),('Give away','Give away')])
 
     subject = StringField('Subject', validators=[DataRequired()])
     content = TextAreaField('Blog', validators=[DataRequired()])
