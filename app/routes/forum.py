@@ -100,6 +100,7 @@ def blogNew():
             tag = form.tag.data,
             image = form.image.data,
             size = form.size.data,
+            color = form.color.data,
             author = current_user.id,
 
             # This sets the modifydate to the current datetime.

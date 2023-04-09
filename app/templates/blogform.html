@@ -40,6 +40,8 @@
                 {% endfor %}
             </p>
 
+<div class="row">
+    <div class="col-1">
             <p>
                 {{ form.size.label }} <br>
                 {{ form.size(size=1) }}
@@ -48,6 +50,18 @@
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
+    </div>
+    <div class="col">
+            <p>
+                {{ form.color.label }} <br>
+                {{ form.color(size=1) }}
+                <!--List the errors for this field-->
+                {% for error in form.color.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+</div>
+</div>
 
             <p>
                 {{form.submit()}}

@@ -20,11 +20,12 @@ class BlogForm(FlaskForm):
     #curr working on
     image = FileField("Image")
     size = SelectField("Size", choices=[('Small','Small'),('Medium','Medium'),('Large','Large')])
+    color = SelectField("Color", choices=[('Red','Red'),('Orange','Orange'),('Yellow','Yellow'),('Green','Green')])
 
     subject = StringField('Subject', validators=[DataRequired()])
     content = TextAreaField('Blog', validators=[DataRequired()])
     tag = StringField('Tag', validators=[DataRequired()])
-    submit = SubmitField('Blog')
+    submit = SubmitField('Add')
 
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
