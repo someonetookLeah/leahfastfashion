@@ -21,10 +21,14 @@ class BlogForm(FlaskForm):
     image = FileField("Image")
     size = SelectField("Size", choices=[('Small','Small'),('Medium','Medium'),('Large','Large')])
     color = SelectField("Color", choices=[('Red','Red'),('Orange','Orange'),('Yellow','Yellow'),('Green','Green')])
+    length = SelectField("Length", choices=[('Short', 'Short'),('Regular','Regular'),('Long','Long')])
+    quality = SelectField("Quality", choices=[('Bad', 'Bad'),('OK','OK'),('Good','Good'),('New','New')])
+    sale = SelectField("Swap or Giveaway", choices=[('Swap','Swap'),('Give away','Give away')])
+    style = StringField('Style', validators=[DataRequired()])
 
     subject = StringField('Subject', validators=[DataRequired()])
     content = TextAreaField('Blog', validators=[DataRequired()])
-    tag = StringField('Tag', validators=[DataRequired()])
+    tag = StringField('Brand', validators=[DataRequired()])
     submit = SubmitField('Add')
 
 class CommentForm(FlaskForm):
