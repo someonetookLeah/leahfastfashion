@@ -46,7 +46,10 @@ class Blog(Document):
     image = FileField()
     size = StringField()
     color = StringField()
+    length = StringField()
     sale = StringField()
+    quality = StringField()
+    style = StringField()
 
     subject = StringField()
     content = StringField()

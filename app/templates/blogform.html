@@ -40,8 +40,9 @@
                 {% endfor %}
             </p>
 
+<div class="container bg-success text-white"><h2 class="text-center">Please fill out the info below.</h2></div>
 <div class="row">
-    <div class="col-1">
+    <div class="col">
             <p>
                 {{ form.size.label }} <br>
                 {{ form.size(size=1) }}
@@ -61,16 +62,47 @@
                 {% endfor %}
             </p>
     </div>
-    <div class="col-10">
+    <div class="col">
         <p>
-            {{ form.sale.label }} <br>
-            {{ form.sale(size=1) }}
+            {{ form.quality.label }} <br>
+            {{ form.quality(size=1) }}
             <!--List the errors for this field-->
-            {% for error in form.sale.errors %}
+            {% for error in form.quality.errors %}
                 <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+    </div>
+    <div class="col">
+         <p>
+            {{ form.length.label }} <br>
+            {{ form.length(size=1) }}
+            <!--List the errors for this field-->
+             {% for error in form.length.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+         </p>
+    </div>
+    <div class="col">
+        <p>
+           {{ form.style.label }} <br>
+           {{ form.style(size=1) }}
+           <!--List the errors for this field-->
+            {% for error in form.style.errors %}
+               <span style="color: red;">[{{ error }}]</span>
+           {% endfor %}
+        </p>
+   </div>
+   <div class="col-3">
+    <p>
+       {{ form.sale.label }} <br>
+       {{ form.sale(size=1) }}
+       <!--List the errors for this field-->
+        {% for error in form.sale.errors %}
+           <span style="color: red;">[{{ error }}]</span>
+       {% endfor %}
+    </p>
 </div>
+
 </div>
 
             <p>

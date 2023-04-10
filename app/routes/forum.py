@@ -101,6 +101,9 @@ def blogNew():
             image = form.image.data,
             size = form.size.data,
             color = form.color.data,
+            length = form.length.data,
+            quality = form.quality.data,
+            style = form.style.data,
             sale = form.sale.data,
             author = current_user.id,
 
