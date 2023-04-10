@@ -3,7 +3,7 @@
 {% block body %}
         <h1></h1>
 
-        <form method=post>
+        <form method=post  enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             <!--curr wokring on-->
             <p>
@@ -92,7 +92,7 @@
            {% endfor %}
         </p>
    </div>
-   <div class="col-3">
+   <div class="col">
     <p>
        {{ form.sale.label }} <br>
        {{ form.sale(size=1) }}

@@ -12,8 +12,8 @@ import datetime as dt
 @app.route('/event/list')
 @login_required
 def eventList():
-    event = Event.objects()
-    return render_template('events.html',event=event)
+    events = Event.objects()
+    return render_template('events.html',events=events)
 
 #read 1
 @app.route('/event/<eventID>')

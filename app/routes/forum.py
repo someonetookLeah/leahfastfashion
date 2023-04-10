@@ -98,7 +98,6 @@ def blogNew():
             subject = form.subject.data,
             content = form.content.data,
             tag = form.tag.data,
-            image = form.image.data,
             size = form.size.data,
             color = form.color.data,
             length = form.length.data,
