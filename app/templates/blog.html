@@ -9,10 +9,10 @@
     {% endif %}
     <br>
     {% if blog.author == current_user %}
-        <a data-toggle="tooltip" data-placement="top" title="Delete Blog" href="/blog/delete/{{blog.id}}">
+        <a data-toggle="tooltip" data-placement="top" title="Delete Post" href="/blog/delete/{{blog.id}}">
             <img width="40" class="bottom-image" src="/static/delete.png">
         </a>
-        <a data-toggle="tooltip" data-placement="top" title="Edit Blog" href="/blog/edit/{{blog.id}}">
+        <a data-toggle="tooltip" data-placement="top" title="Edit Post" href="/blog/edit/{{blog.id}}">
             <img width="40" class="bottom-image" src="/static/edit.png">
         </a>
     {% endif %}
@@ -65,7 +65,7 @@
         <h1 class="display-5">No Comments</h1>
     {% endif %}
 {% else %}
-    <h1 class="display-5">No Blog</h1>
+    <h1 class="display-5">No Clothing</h1>
 {% endif %}
 
 
