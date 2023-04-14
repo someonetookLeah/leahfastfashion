@@ -24,6 +24,7 @@ def event(eventID):
 
 @app.route('/event/delete/<eventID>')
 # Only run this route if the user is logged in.
+#aileen dont break the code pls
 @login_required
 def eventDelete(eventID):
     # retrieve the blog to be deleted using the blogID
