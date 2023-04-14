@@ -12,10 +12,10 @@
     {% endif %}
     <br>
     {% if event.author == current_user %}
-        <a data-toggle="tooltip" data-placement="top" title="Delete Event" href="/event/delete/{{event.id}}">
+        <a data-toggle="tooltip" data-placement="top" title="Delete Post" href="/event/delete/{{event.id}}">
             <img width="40" class="bottom-image" src="/static/delete.png">
         </a>
-        <a data-toggle="tooltip" data-placement="top" title="Edit Event" href="/event/edit/{{event.id}}">
+        <a data-toggle="tooltip" data-placement="top" title="Edit Post" href="/event/edit/{{event.id}}">
             <img width="40" class="bottom-image" src="/static/edit.png">
         </a>
     {% endif %}
