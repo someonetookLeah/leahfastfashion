@@ -22,11 +22,17 @@
         {% if blog.author.image %}
             <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.author.image.read())}}">
         {% endif %}
+        <br><br><br>
         <!--curr working on-->
         {% if blog.image %}
-        <img width="200" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.image.read())}}">
+        
+        <img width="700" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.image.read())}}">
+        
         {% endif %}
+            <br><br><br>
+            Description:
             {{blog.content}} <br>
+            Brand:
             {{blog.tag}} <br>
             Color:
             {{blog.color}} <br>
