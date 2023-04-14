@@ -27,7 +27,19 @@
         <img width="200" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.image.read())}}">
         {% endif %}
             {{blog.content}} <br>
-            {{blog.tag}}
+            {{blog.tag}} <br>
+            Color:
+            {{blog.color}} <br>
+            Size:
+            {{blog.size}} <br>
+            Style:
+            {{blog.style}} <br>
+            Swap or Giveaway:
+            {{blog.sale}} <br>
+            Length:
+            {{blog.length}} <br>
+            Quality:
+            {{blog.quality}}
 
     </p>
     <a href="/comment/new/{{blog.id}}" class="btn btn-primary btn-sm" role="button">New Comment</a>

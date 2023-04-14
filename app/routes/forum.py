@@ -155,9 +155,12 @@ def blogEdit(blogID):
             subject = form.subject.data,
             content = form.content.data,
             tag = form.tag.data,
-            image = form.image.data,
             size = form.size.data,
             color = form.color.data,
+            length = form.length.data,
+            quality = form.quality.data,
+            style = form.style.data,
+            sale = form.sale.data,
             modify_date = dt.datetime.utcnow
         )
     #curr working on
@@ -176,6 +179,12 @@ def blogEdit(blogID):
     form.subject.data = editBlog.subject
     form.content.data = editBlog.content
     form.tag.data = editBlog.tag
+    form.color.data = editBlog.color
+    form.style.data = editBlog.style
+    form.quality.data = editBlog.quality
+    form.length.data = editBlog.length
+    form.sale.data = editBlog.sale
+
 
 
     # Send the user to the blog form that is now filled out with the current information
