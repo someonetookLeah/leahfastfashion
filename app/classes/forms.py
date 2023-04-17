@@ -16,6 +16,7 @@ class ProfileForm(FlaskForm):
     role = SelectField('Role', choices=[("Teacher","Teacher"),("Student","Student")])
     age = SelectField('Age', choices=[("Freshman", "Freshman",),("Sophomore","Sophomore"),("Junior","Junior"),("Senior","Senior"),("Teacher","Teacher")])
     ##age = SelectField('Age', choices=[(17,17),(18,18),("old","old")])
+    
 class BlogForm(FlaskForm):
     #curr working on
     image = FileField("Image")

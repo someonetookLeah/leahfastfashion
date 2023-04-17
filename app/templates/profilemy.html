@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-2">
         {% if current_user.image %}
-            <img class="img-thumbnail img-fluid" src="data:image;base64,{{base64encode(current_user.image.read())}}"> <br>
+            <img class="img-thumbnail  img-fluid" src="data:image;base64,{{base64encode(current_user.image.read())}}"> <br>
         {% else %}
             <img class="img-thumbnail" width = "100" src="/static/bdog.png">
         {% endif %} 
@@ -22,12 +22,15 @@
             Google User Name: {{current_user.gname}} <br>
         {% endif %}
         Email: {{current_user.email}} <br>
-
+        Grade: {{current_user.age}} <br>
     </div>
 </div>
 <br>
 
-Role: {{current_user.role}} <br>
-Age: {{current_user.age}} <br>
+<div class="container">
+    <h2>BIO</h2>
+
+
+</div>
 
 {% endblock %}

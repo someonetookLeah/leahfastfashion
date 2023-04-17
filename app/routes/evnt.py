@@ -23,6 +23,8 @@ def event(eventID):
     return render_template('event.html',event=thisEvent)
 
 @app.route('/event/delete/<eventID>')
+# Only run this route if the user is logged in.
+#aileen dont break the code pls
 @login_required
 def eventDelete(eventID):
     deleteEvent = Event.objects.get(id=eventID)
