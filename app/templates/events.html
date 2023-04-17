@@ -7,9 +7,9 @@
 <div class="row">
     <div class="col-4">
         <h1 class="display-1">All Events</h1>
-    </div>
+    </div><br><br><br>
     <div class="col">
-        <a href="/event/new" class="btn btn-primary btn-sm mt-5" role="button">New Event</a>
+        <a href="/event/new" class="btn btn-primary btn-sm mt-5" role="button"> Create New Event </a>
     </div>
 </div>
 
@@ -18,24 +18,12 @@
         <div class="row border-bottom">
             <div class="col-2">
                 {% if loop.index == 1 %}
-                <h3 class="display-5">Date</h3>
+                <h3 class="display-5">Event</h3>
                 {% endif %}
 
                 <a href="/event/{{event.id}}">
-                    {{moment(event.create_date).calendar()}}
+                    {{event.day}}
                 </a>
-            </div>
-            <div class="col-2">
-                {% if loop.index == 1 %}
-                <h3 class="display-5">User</h3>
-                {% endif %}
-                {{event.author.fname}} {{event.author.lname}}
-            </div>
-            <div class="col">
-                {% if loop.index == 1 %}
-                    <h3 class="display-5">Subject</h3>
-                {% endif %}
-                {{event.subject}}
             </div>
         </div>
 
