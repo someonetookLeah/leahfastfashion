@@ -9,10 +9,10 @@
     {% endif %}
     <br>
     {% if blog.author == current_user %}
-        <a data-toggle="tooltip" data-placement="top" title="Delete Blog" href="/blog/delete/{{blog.id}}">
+        <a data-toggle="tooltip" data-placement="top" title="Delete Post" href="/blog/delete/{{blog.id}}">
             <img width="40" class="bottom-image" src="/static/delete.png">
         </a>
-        <a data-toggle="tooltip" data-placement="top" title="Edit Blog" href="/blog/edit/{{blog.id}}">
+        <a data-toggle="tooltip" data-placement="top" title="Edit Post" href="/blog/edit/{{blog.id}}">
             <img width="40" class="bottom-image" src="/static/edit.png">
         </a>
     {% endif %}
@@ -22,12 +22,30 @@
         {% if blog.author.image %}
             <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.author.image.read())}}">
         {% endif %}
+        <br><br><br>
         <!--curr working on-->
         {% if blog.image %}
-        <img width="200" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.image.read())}}">
+        
+        <img width="700" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.image.read())}}">
+        
         {% endif %}
+            <br><br><br>
+            Description:
             {{blog.content}} <br>
-            {{blog.tag}}
+            Brand:
+            {{blog.tag}} <br>
+            Color:
+            {{blog.color}} <br>
+            Size:
+            {{blog.size}} <br>
+            Style:
+            {{blog.style}} <br>
+            Swap or Giveaway:
+            {{blog.sale}} <br>
+            Length:
+            {{blog.length}} <br>
+            Quality:
+            {{blog.quality}}
 
     </p>
     <a href="/comment/new/{{blog.id}}" class="btn btn-primary btn-sm" role="button">New Comment</a>
@@ -53,7 +71,7 @@
         <h1 class="display-5">No Comments</h1>
     {% endif %}
 {% else %}
-    <h1 class="display-5">No Blog</h1>
+    <h1 class="display-5">No Clothing</h1>
 {% endif %}
 
 
