@@ -27,21 +27,13 @@ def event(eventID):
 #aileen dont break the code pls
 @login_required
 def eventDelete(eventID):
-    # retrieve the blog to be deleted using the blogID
     deleteEvent = Event.objects.get(id=eventID)
-    # check to see if the user that is making this request is the author of the blog.
-    # current_user is a variable provided by the 'flask_login' library.
     if current_user == deleteEvent.author:
-        # delete the blog using the delete() method from Mongoengine
         deleteEvent.delete()
-        # send a message to the user that the blog was deleted.
         flash('The event was deleted.')
     else:
-        # if the user is not the author tell them they were denied.
-        flash("You can't delete a event you don't own.")
-    # Retrieve all of the remaining blogs so that they can be listed.
+        flash("You can't delete an event you don't own.")
     events = Event.objects()  
-    # Send the user to the list of remaining blogs.
     return render_template('events.html',events=event)
 
 
