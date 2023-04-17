@@ -44,7 +44,7 @@ class Blog(Document):
     
     #curr working on
     image = FileField()
-    size = StringField()
+    clothingsize = StringField()
     color = StringField()
     length = StringField()
     sale = StringField()
@@ -57,8 +57,6 @@ class Blog(Document):
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
     
-
-
     meta = {
         'ordering': ['-createdate']
     }

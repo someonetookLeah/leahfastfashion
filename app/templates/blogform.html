@@ -44,10 +44,10 @@
 <div class="row">
     <div class="col">
             <p>
-                {{ form.size.label }} <br>
-                {{ form.size(size=1) }}
+                {{ form.clothingsize.label }} <br>
+                {{ form.clothingsize(size=1) }}
                 <!--List the errors for this field-->
-                {% for error in form.size.errors %}
+                {% for error in form.clothingsize.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
