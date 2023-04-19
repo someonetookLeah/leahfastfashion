@@ -34,7 +34,9 @@ class BlogForm(FlaskForm):
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
     rating = SelectField('Rating', choices=[('1-Good',"1-Good"),('2-OK','2-OK'),('3-Bad','3-Bad')])
+    reserve = SelectField('Reserve', choices=[('Reserve', 'Reserve'),('Thinking about it','Thinking about it')])
     submit = SubmitField('Comment')
+
 
 class ClothingForm(FlaskForm):
     color = SelectField('Color', choices=[('White','White'),('Black','Black'),('Red','Red')])

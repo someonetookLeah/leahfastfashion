@@ -208,7 +208,11 @@ def commentNew(blogID):
             author = current_user.id,
             blog = blogID,
             content = form.content.data,
-            rating = form.rating.data
+            rating = form.rating.data,
+            reserve = form.reserve.data,
+            modify_date = dt.datetime.utcnow
+
+
         )
         newComment.save()
         return redirect(url_for('blog',blogID=blogID))
@@ -226,13 +230,15 @@ def commentEdit(commentID):
     if form.validate_on_submit():
         editComment.update(
             content = form.content.data,
-            modifydate = dt.datetime.utcnow,
+            #modifydate = dt.datetime.utcnow,
+            reserve = form.reserve.data,
             rating = form.rating.data
         )
         return redirect(url_for('blog',blogID=editComment.blog.id))
 
     form.content.data = editComment.content
     form.rating.data = editComment.content
+    form.reserve.data = editComment.content
 
     return render_template('commentform.html',form=form,blog=blog)   
 
