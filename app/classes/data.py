@@ -70,6 +70,7 @@ class Comment(Document):
     # Line 68 is where you store all the info you need but won't find in the Course and Teacher Object
     content = StringField()
     rating = StringField()
+    reserve = StringField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
 

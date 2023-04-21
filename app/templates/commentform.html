@@ -33,6 +33,13 @@
                 {% endfor %}
             </p>
 
+            <p>
+                {{ form.reserve.label }}<br>
+                {{ form.reserve() }}<br>
+                {% for error in form.reserve.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
             {{form.submit()}}
         </form>
         
