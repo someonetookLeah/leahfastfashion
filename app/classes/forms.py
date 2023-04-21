@@ -44,6 +44,7 @@ class ClothingForm(FlaskForm):
     submit = SubmitField('Add')
 
 class EventForm(FlaskForm): 
+    image = FileField("Image")
     day = StringField('Day', validators=[DataRequired()])
     time = StringField('Time', validators=[DataRequired()])
     location = StringField('Location', validators=[DataRequired()])

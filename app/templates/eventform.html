@@ -3,8 +3,17 @@
 {% block body %}
         <h1></h1>
 
-        <form method=post>
+        <form method=post  enctype="multipart/form-data">
             {{ form.hidden_tag() }}
+            <!--curr wokring on-->
+            <p>
+                {{ form.image.label }} <br>
+                {{ form.image() }}
+                <!--List the errors for this field-->
+                {% for error in form.image.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
             <p>
                 {{ form.day.label }} <br>
                 {{ form.day(size=64) }}

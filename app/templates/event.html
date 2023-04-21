@@ -11,6 +11,10 @@
         modified {{moment(event.modifydate).calendar()}}
     {% endif %}
     <br>
+    {% if event.image %}
+        <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(event.image.read())}}">
+    {% endif %}
+    <br>
     {% if event.author == current_user %}
         <a data-toggle="tooltip" data-placement="top" title="Delete Post" href="/event/delete/{{event.id}}">
             <img width="40" class="bottom-image" src="/static/delete.png">

@@ -21,9 +21,13 @@
                 <h3 class="display-5">Event</h3>
                 {% endif %}
 
+                
                 <a href="/event/{{event.id}}">
                     {{event.day}}
                 </a>
+                {% if event.image %}
+                <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(event.image.read())}}">
+              {% endif %}
             </div>
         </div>
 

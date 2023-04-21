@@ -104,7 +104,7 @@ class Event(Document):
     description = StringField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
-    
+    image = FileField()
 
 
     meta = {

@@ -48,7 +48,6 @@ def EventNew():
 
     if form.validate_on_submit():
 
-
         newEvent = Event(
             day = form.day.data,
             time = form.time.data,
@@ -58,6 +57,10 @@ def EventNew():
             author = current_user
         )
         newEvent.save()
+
+        if form.image.data:
+            newEvent.image.put(form.image.data, content_type = 'image/jpeg')
+            newEvent.save()
 
         return redirect(url_for('event', eventID=newEvent.id))
     return render_template('eventform.html', form=form)
