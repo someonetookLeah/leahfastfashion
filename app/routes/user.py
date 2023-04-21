@@ -34,7 +34,8 @@ def profileEdit():
             lname = form.lname.data,
             fname = form.fname.data,
             role = form.role.data,
-            age = form.age.data
+            age = form.age.data,
+            bio = form.bio.data
         )
         # This updates the profile image
         if form.image.data:
@@ -52,5 +53,6 @@ def profileEdit():
     form.lname.data = current_user.lname
     form.role.data = current_user.role
     form.age.data = current_user.age
+    form.bio.data = current_user.bio
 
     return render_template('profileform.html', form=form)

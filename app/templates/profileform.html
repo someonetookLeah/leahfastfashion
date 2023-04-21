@@ -20,6 +20,13 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+        <p>
+            {{ form.bio.label }}<br>
+            {{ form.bio(size=64) }}<br>
+            {% for error in form.bio.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
 
         <p>
             {{ form.image.label }}<br>
