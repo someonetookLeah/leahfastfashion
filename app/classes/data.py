@@ -33,6 +33,7 @@ class User(UserMixin, Document):
     prononuns = StringField()
     role = StringField()
     age = StringField()
+    bio = StringField()
 
 
     meta = {

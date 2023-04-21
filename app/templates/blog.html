@@ -29,7 +29,7 @@
         <!--curr working on-->
         {% if blog.image %}
         <div class="col">
-        <img width="700" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.image.read())}}">
+        <img width="300" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.image.read())}}">
         </div>
         {% endif %}
             
@@ -65,6 +65,9 @@
     {% for comment in comments %}
 
     <div class="container; col">
+        <br>
+        <div class="container p-1 mb-2 bg-success"></div>
+
         {% if current_user == comment.author %}
             <a href="/comment/delete/{{comment.id}}"><img width="20" src="/static/delete.png"></a> 
             <a href="/comment/edit/{{comment.id}}"><img width="20" src="/static/edit.png"></a>
