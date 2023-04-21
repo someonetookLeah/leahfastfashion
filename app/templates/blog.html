@@ -25,11 +25,13 @@
         <br><br><br>
         <!--curr working on-->
         {% if blog.image %}
-        
+        <div class="col">
         <img width="700" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.image.read())}}">
-        
+        </div>
         {% endif %}
-            <br><br><br>
+            
+            <div class="col">
+            <p style="font-size: 24px;">
             Description:
             {{blog.content}} <br>
             Brand:
@@ -37,7 +39,7 @@
             Color:
             {{blog.color}} <br>
             Size:
-            {{blog.size}} <br>
+            {{blog.clothingsize}} <br>
             Style:
             {{blog.style}} <br>
             Swap or Giveaway:
@@ -46,6 +48,8 @@
             {{blog.length}} <br>
             Quality:
             {{blog.quality}}
+        </p>
+        </div>
 
     </p>
     <a href="/comment/new/{{blog.id}}" class="btn btn-primary btn-sm" role="button">New Comment</a>

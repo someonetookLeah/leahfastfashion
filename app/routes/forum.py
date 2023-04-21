@@ -98,7 +98,7 @@ def blogNew():
             subject = form.subject.data,
             content = form.content.data,
             tag = form.tag.data,
-            size = form.size.data,
+            clothingsize = form.clothingsize.data,
             color = form.color.data,
             length = form.length.data,
             quality = form.quality.data,
@@ -155,7 +155,7 @@ def blogEdit(blogID):
             subject = form.subject.data,
             content = form.content.data,
             tag = form.tag.data,
-            size = form.size.data,
+            clothingsize = form.clothingsize.data,
             color = form.color.data,
             length = form.length.data,
             quality = form.quality.data,
@@ -163,7 +163,7 @@ def blogEdit(blogID):
             sale = form.sale.data,
             modify_date = dt.datetime.utcnow
         )
-    #curr working on
+        #curr working on
         if form.image.data:
             if editBlog.image:
                 editBlog.image.delete()
@@ -172,7 +172,7 @@ def blogEdit(blogID):
             editBlog.save()
             
         # After updating the document, send the user to the updated blog using a redirect.
-        return redirect(url_for('blog',blogID=blogID))
+        return redirect(url_for('blog',blogID=editBlog.id))
 
     # if the form has NOT been submitted then take the data from the editBlog object
     # and place it in the form object so it will be displayed to the user on the template.
@@ -184,8 +184,7 @@ def blogEdit(blogID):
     form.quality.data = editBlog.quality
     form.length.data = editBlog.length
     form.sale.data = editBlog.sale
-
-
+    form.clothingsize.data = editBlog.clothingsize
 
     # Send the user to the blog form that is now filled out with the current information
     # from the form.
