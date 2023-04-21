@@ -70,7 +70,7 @@ def eventEdit(eventID):
 
     if current_user != editEvent.author:
         flash("You can't edit a post you don't own.")
-        return redirect(url_for('post',eventID=eventID))
+        return redirect(url_for('event',eventID=eventID))
 
     form = EventForm()
  
@@ -84,13 +84,13 @@ def eventEdit(eventID):
             modify_date = dt.datetime.utcnow,
             author = current_user
         )
-        return redirect(url_for('post',eventID=eventID))
+        return redirect(url_for('event',eventID=eventID))
 
 
-    form.day.data = editEvent.subject
-    form.time.data = editEvent.content
-    form.location.data = editEvent.subject
-    form.description.data = editEvent.content
+    form.day.data = editEvent.day
+    form.time.data = editEvent.time
+    form.location.data = editEvent.location
+    form.description.data = editEvent.description
 
     return render_template('eventform.html',form=form)
 
