@@ -7,7 +7,7 @@
     {% if blog.modifydate %}
         modified {{moment(blog.modifydate).calendar()}}
     {% endif %}
-    <br>
+    <br><br>
     {% if blog.author == current_user %}
         <a data-toggle="tooltip" data-placement="top" title="Delete Post" href="/blog/delete/{{blog.id}}">
             <img width="40" class="bottom-image" src="/static/delete.png">
@@ -16,6 +16,9 @@
             <img width="40" class="bottom-image" src="/static/edit.png">
         </a>
     {% endif %}
+
+    <br><br>
+    <div class="container p-3 mb-2 bg-success text-white"></div>
 
     <h1 class="display-5">{{blog.subject}}</h1>
     <p class="fs-3 text-break">
@@ -31,7 +34,7 @@
         {% endif %}
             
             <div class="col">
-            <p style="font-size: 24px;">
+            <p style="font-size: 30px;">
             Description:
             {{blog.content}} <br>
             Brand:
@@ -50,18 +53,23 @@
             {{blog.quality}}
         </p>
         </div>
-
     </p>
-    <a href="/comment/new/{{blog.id}}" class="btn btn-primary btn-sm" role="button">New Comment</a>
+    <br>
 
+    <div class="container p-3 mb-2 bg-success text-white"></div>
+    <br>
+    <a href="/comment/new/{{blog.id}}" class="btn btn-success btn-md" role="button">New Comment</a>
+    <br><br>
     {% if comments %}
     <h1 class="display-5">Comments</h1>
     {% for comment in comments %}
+
+    <div class="container; col">
         {% if current_user == comment.author %}
             <a href="/comment/delete/{{comment.id}}"><img width="20" src="/static/delete.png"></a> 
             <a href="/comment/edit/{{comment.id}}"><img width="20" src="/static/edit.png"></a>
         {% endif %}
-        {{moment(comment.create_date).calendar()}} {{comment.author.username}} 
+        {{moment(comment.create_date).calendar()}} by {{comment.author.fname}} {{comment.author.lname}} 
         {% if comment.modifydate %}
             modified {{moment(comment.modifydate).calendar()}}
         {% endif %}
@@ -70,13 +78,14 @@
             {{comment.content}}
         </p>
         Rating: {{comment.rating}} <br>
+        Reserve: {{comment.reserve}}
     {% endfor %}
+</div>
     {% else %}
         <h1 class="display-5">No Comments</h1>
     {% endif %}
 {% else %}
     <h1 class="display-5">No Clothing</h1>
 {% endif %}
-
 
 {% endblock %}

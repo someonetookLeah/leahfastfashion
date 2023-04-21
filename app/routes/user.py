@@ -6,7 +6,7 @@ from app.classes.forms import ProfileForm
 from flask_login import current_user
 
 # These routes and functions are for accessing and editing user profiles.
-
+admins = ['s_aileen.oubkeo@ousd.org']
 # The first line is what listens for the user to type 'myprofile'
 @app.route('/myprofile')
 # This line tells the user that they cannot access this without being loggedin

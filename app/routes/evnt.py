@@ -23,18 +23,21 @@ def event(eventID):
     return render_template('event.html',event=thisEvent)
 
 @app.route('/event/delete/<eventID>')
-# Only run this route if the user is logged in.
+#delete
 #aileen dont break the code pls
 @login_required
 def eventDelete(eventID):
     deleteEvent = Event.objects.get(id=eventID)
+    #flash(f"author is: {deleteEvent.author.fname}.")
+    #flash(f"Current user is {current_user.fname}")
     if current_user == deleteEvent.author:
         deleteEvent.delete()
         flash('The event was deleted.')
     else:
         flash("You can't delete an event you don't own.")
     events = Event.objects()  
-    return render_template('events.html',events=event)
+    return render_template('events.html',events=events)
+
 
 
 #create new clothing
@@ -51,7 +54,8 @@ def EventNew():
             time = form.time.data,
             location = form.location.data,
             description = form.description.data,
-            modify_date = dt.datetime.utcnow
+            modify_date = dt.datetime.utcnow,
+            author = current_user
         )
         newEvent.save()
 
@@ -66,7 +70,7 @@ def eventEdit(eventID):
 
     if current_user != editEvent.author:
         flash("You can't edit a post you don't own.")
-        return redirect(url_for('post',eventID=eventID))
+        return redirect(url_for('event',eventID=eventID))
 
     form = EventForm()
  
@@ -77,15 +81,16 @@ def eventEdit(eventID):
             time = form.time.data,
             location = form.location.data,
             description = form.description.data,
-            modify_date = dt.datetime.utcnow
+            modify_date = dt.datetime.utcnow,
+            author = current_user
         )
-        return redirect(url_for('post',eventID=eventID))
+        return redirect(url_for('event',eventID=eventID))
 
 
-    form.day.data = editEvent.subject
-    form.time.data = editEvent.content
-    form.location.data = editEvent.subject
-    form.description.data = editEvent.content
+    form.day.data = editEvent.day
+    form.time.data = editEvent.time
+    form.location.data = editEvent.location
+    form.description.data = editEvent.description
 
     return render_template('eventform.html',form=form)
 
