@@ -51,3 +51,7 @@ class EventForm(FlaskForm):
     location = StringField('Location', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class eventcommentForm(FlaskForm):
+    attending = SelectField('Will you be attending?', choices=[("Yes, I'm coming!", "Yes, I'm coming!"),("Next time","Next time")])
+    submit = SubmitField('Submit')

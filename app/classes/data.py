@@ -66,6 +66,7 @@ class Comment(Document):
     # Line 63 is a way to access all the information in Course and Teacher w/o storing it in this class
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     blog = ReferenceField('Blog',reverse_delete_rule=CASCADE)
+    
     # This could be used to allow comments on comments
     comment = ReferenceField('Comment',reverse_delete_rule=CASCADE)
     # Line 68 is where you store all the info you need but won't find in the Course and Teacher Object
@@ -78,7 +79,15 @@ class Comment(Document):
     meta = {
         'ordering': ['-createdate']
     }
+class eventcomment(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    attending = StringField()
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
 
+    meta = {
+        'ordering': ['-createdate']
+    }
 class Cloth(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     subject = StringField()
