@@ -10,20 +10,14 @@
             {% endfor %}
         {% endfor %}
 
-        <h1 class="display-5">{{event.subject}}</h1>
-        <!--{{event.content}} <br>-->
+        <h1 class="display-5">{{event.attending}}</h1>
+        
         <h1 class="display-5">New Comment</h1>
 
         <form method=post>
-            {{ form.hidden_tag() }}
+            <!--{{ form.hidden_tag() }}-->
             
-            <!--{{ form.content.label }} <br>
-            {{ form.content(cols=64) }}
-            List the errors for this field-->
-            {% for error in form.content.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-            <br>
+
 
             <p>
                 {{ form.attending.label }}<br>
