@@ -37,24 +37,25 @@
     </p>
     
 
-
-    {% if comments %}
-    <h1 class="display-5">Comments</h1>
-    {% for comment in comments %}
-        {% if current_user == comment.author %}
-            <a href="/comment/delete/{{comment.id}}"><img width="20" src="/static/delete.png"></a> 
-            <a href="/comment/edit/{{comment.id}}"><img width="20" src="/static/edit.png"></a>
+    <a href="/eventcomment/new/{{event.id}}" class="btn btn-success btn-md" role="button">Sign Up</a>
+    <br><br>
+    {% if eventcomments %}
+    <h1 class="display-5">Attending</h1>
+    {% for eventcomment in eventcomments %}
+        {% if current_user == eventcomment.author %}
+            <a href="/eventcomment/delete/{{eventcomment.id}}"><img width="20" src="/static/delete.png"></a> 
+            <a href="/eventcomment/edit/{{eventcomment.id}}"><img width="20" src="/static/edit.png"></a>
         {% endif %}
-        {{moment(comment.create_date).calendar()}} {{comment.author.username}} 
-        {% if comment.modifydate %}
-            modified {{moment(comment.modifydate).calendar()}}
+        {{moment(eventcomment.create_date).calendar()}} {{eventcomment.author.username}} 
+        {% if eventcomment.modifydate %}
+            modified {{moment(eventcomment.modifydate).calendar()}}
         {% endif %}
         <br>
         <p class="fs-3">
-            {{comment.content}}
+            # {{eventcomment.attending}}
             
         </p>
-        rating: {{comment.rating}} <br>
+         <br>
     {% endfor %}
     {% else %}
         
@@ -63,4 +64,4 @@
     <h1 class="display-5">No Events</h1>
 {% endif %}
 
-{% endblock %}
+{% endblock %} 
