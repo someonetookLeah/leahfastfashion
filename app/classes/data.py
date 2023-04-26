@@ -84,6 +84,7 @@ class eventcomment(Document):
     attending = StringField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
+    event = ReferenceField("Event")
 
     meta = {
         'ordering': ['-createdate']

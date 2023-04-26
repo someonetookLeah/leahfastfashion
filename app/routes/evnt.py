@@ -21,7 +21,8 @@ def eventList():
 @login_required
 def event(eventID):
     thisEvent = Event.objects.get(id=eventID)
-    return render_template('event.html',event=thisEvent)
+    comments = eventcomment.objects(event = thisEvent)
+    return render_template('event.html',event=thisEvent,comments=comments)
 
 @app.route('/event/delete/<eventID>')
 #delete
@@ -98,7 +99,7 @@ def eventEdit(eventID):
 
     return render_template('eventform.html',form=form)
 
-#commenting so cool
+#commenting so cool !!!!
 @app.route('/eventcomment/new/<eventID>', methods=['GET', 'POST'])
 @login_required
 def eventcommentNew(eventID):
@@ -107,7 +108,7 @@ def eventcommentNew(eventID):
     if form.validate_on_submit():
         neweventcomment = eventcomment(
             author = current_user.id,
-            event = eventID,
+            event = event,
             attending = form.attending.data,
             modify_date = dt.datetime.utcnow
         )
@@ -115,7 +116,7 @@ def eventcommentNew(eventID):
         return redirect(url_for('event',eventID=eventID))
     return render_template('eventcommentform.html',form=form,event=event)
 #edit comments 
-@app.route('/eventcomment/edit/<commentID>', methods=['GET', 'POST'])
+@app.route('/eventcomment/edit/<eventcommentID>', methods=['GET', 'POST'])
 @login_required
 def eventcommentEdit(eventcommentID):
     editeventcomment = eventcomment.objects.get(id=eventcommentID)
@@ -129,7 +130,7 @@ def eventcommentEdit(eventcommentID):
             #modifydate = dt.datetime.utcnow,
             attending = form.attending.data
         )
-        return redirect(url_for('event',EventID=editeventcomment.event.id))
+        return redirect(url_for('event',eventID=editeventcomment.event.id))
 
     
     form.attending.data = editeventcomment.attending
