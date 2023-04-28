@@ -62,13 +62,15 @@
 
     <div class="container p-3 mb-2 bg-success text-white"></div>
     <br>
+    <div class="container">
     <a href="/comment/new/{{blog.id}}" class="btn btn-success btn-md" role="button">New Comment</a>
     <br><br>
     {% if comments %}
     <h1 class="display-5">Comments</h1>
     {% for comment in comments %}
+</div>
 
-    <div class="container; col">
+    <div class="container">
         <br>
         <div class="container p-1 mb-2 bg-success"></div>
 
@@ -87,7 +89,7 @@
         Rating: {{comment.rating}} <br>
         Reserve: {{comment.reserve}}
     {% endfor %}
-</div>
+    </div>
     {% else %}
         <h1 class="display-5">No Comments</h1>
     {% endif %}
