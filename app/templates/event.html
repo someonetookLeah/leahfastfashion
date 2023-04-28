@@ -1,19 +1,22 @@
 <!-- This is a blank template.  You can copy this to make a new template page. -->
 <!-- views 1 cloth-->
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
 {% extends 'base.html' %}
 
 {% block body %}
 
 {% if event %}
-    {{moment(event.create_date).calendar()}} by {{event.author.fname}} {{event.author.lname}} 
-    {% if event.modifydate %}
-        modified {{moment(event.modifydate).calendar()}}
-    {% endif %}
     <br>
     {% if event.image %}
         <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(event.image.read())}}">
     {% endif %}
+    {{moment(event.create_date).calendar()}} by {{event.author.fname}} {{event.author.lname}} 
+    {% if event.modifydate %}
+        modified {{moment(event.modifydate).calendar()}}
+    {% endif %}
+
     <br>
     {% if event.author == current_user %}
         <a data-toggle="tooltip" data-placement="top" title="Delete Post" href="/event/delete/{{event.id}}">
@@ -29,10 +32,10 @@
         {% if event.author.image %}
             <img width="120" class="img-thumbnail float-start me-2 " src="data:image;base64,{{base64encode(event.author.image.read())}}">
         {% endif %}
-            <p style="font-size:30px; font-family:'Times New Roman', Times, serif;">When will the clothing swap take place?</p> <span style="font-size: 20px; color:rgb(0, 105, 18)">{{event.day}}</span> <br><br>
-            <p style="font-size:30px; font-family:'Times New Roman', Times, serif;">At what time?</p>  <span style="font-size: 20px; color:rgb(0, 105, 18)">{{event.time}}</span><br><br>
-            <p style="font-size:30px; font-family:'Times New Roman', Times, serif;">Where?</p><span style="font-size: 20px; color:rgb(0, 105, 18)">{{event.location}}</span><br><br>
-            <p style="font-size:30px; font-family:'Times New Roman', Times, serif;">What else do I need to know?</p><span style="font-size: 20px; color:rgb(0, 105, 18)">{{event.description}}</span><br><br>
+            <p style="font-family: 'Noto Sans', sans-serif;">When will the clothing swap take place?</p> <span style="font-family: 'Noto Sans', sans-serif; font-size: 20px; color:rgb(0, 105, 18)">{{event.day}}</span> <br><br>
+            <p style="font-family: 'Noto Sans', sans-serif;">At what time?</p>  <span style="font-size: 20px; color:rgb(0, 105, 18)">{{event.time}}</span><br><br>
+            <p style="font-family: 'Noto Sans', sans-serif;">Where?</p><span style="font-size: 20px; color:rgb(0, 105, 18)">{{event.location}}</span><br><br>
+            <p style="font-family: 'Noto Sans', sans-serif;">What else do I need to know?</p><span style="font-size: 20px; color:rgb(0, 105, 18)">{{event.description}}</span><br><br>
 
     </p>
     
