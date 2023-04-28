@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
 {% extends 'base.html' %}
 
 {% block body %}
@@ -17,14 +20,14 @@
     </div>
     <div class="col display-5">
         {% if current_user.fname and current_user.lname %}
-        <p>Name: {{current_user.fname}}  {{current_user.lname}} </p>
+        <p style="font-family: 'Source Sans Pro', sans-serif;">Name: {{current_user.fname}}  {{current_user.lname}} </p>
         {% else %}
-        <p>Google User Name: {{current_user.gname}} </p>
+        <p style="font-family: 'Source Sans Pro', sans-serif;">Google User Name: {{current_user.gname}} </p>
         {% endif %}
-        <p>Email: {{current_user.email}} </p>
-        <p>Grade: {{current_user.age}} </p>
+        <p style="font-family: 'Source Sans Pro', sans-serif;">Email: {{current_user.email}} </p>
+        <p style="font-family: 'Source Sans Pro', sans-serif;">Grade: {{current_user.age}} </p>
    
-        <p> Bio: {{current_user.bio}} </p>
+        <p style="font-family: 'Source Sans Pro', sans-serif;"> Bio: {{current_user.bio}} </p>
 
     </div>
 </div>
