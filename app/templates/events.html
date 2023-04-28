@@ -26,14 +26,14 @@
         <div class="row border-bottom">
 
             
-            <div class="col-2">
+            <div class="col-20">
                 {% if loop.index == 1 %}
             
                 {% endif %}
 
                 
                 <a href="/event/{{event.id}}">
-                    {{event.day}}
+                    Clothing Swap: {{event.day}}
                 </a>
                 {% if event.image %}
                 <img width="250" class="img-thumbnail float-start me-2 rounded" src="data:image;base64,{{base64encode(event.image.read())}}">
