@@ -27,7 +27,7 @@
     <h1 class="display-5">{{event.subject}}</h1>
     <p class="fs-3 text-break">
         {% if event.author.image %}
-            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(event.author.image.read())}}">
+            <img width="120" class="img-thumbnail float-start me-2 " src="data:image;base64,{{base64encode(event.author.image.read())}}">
         {% endif %}
             <p style="font-size:30px; font-family:'Times New Roman', Times, serif;">When will the clothing swap take place?</p> <span style="font-size: 20px; color:rgb(0, 105, 18)">{{event.day}}</span> <br><br>
             <p style="font-size:30px; font-family:'Times New Roman', Times, serif;">At what time?</p>  <span style="font-size: 20px; color:rgb(0, 105, 18)">{{event.time}}</span><br><br>
