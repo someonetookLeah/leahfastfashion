@@ -16,7 +16,7 @@
 {% if events %}
     {% for event in events %}
         <div class="row border-bottom">
-            <div class="col-2">
+            <div class="col-6">
                 {% if loop.index == 1 %}
                 <h3 class="display-5">Event</h3>
                 {% endif %}
@@ -26,7 +26,7 @@
                     {{event.day}}
                 </a>
                 {% if event.image %}
-                <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(event.image.read())}}">
+                <img width="250" class="img-thumbnail float-start me-2 rounded" src="data:image;base64,{{base64encode(event.image.read())}}">
               {% endif %}
             </div>
         </div>
