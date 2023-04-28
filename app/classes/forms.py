@@ -28,7 +28,7 @@ class BlogForm(FlaskForm):
     style = StringField('Style', validators=[DataRequired()])
     clothingsize = SelectField("Size", choices=[('Small','Small'),('Medium','Medium'),('Large','Large')])
     subject = StringField('Subject', validators=[DataRequired()])
-    content = TextAreaField('Describe how clothing fits other info etc...', validators=[DataRequired()])
+    content = TextAreaField('Describe the cothing and include your email', validators=[DataRequired()])
     tag = StringField('Brand', validators=[DataRequired()])
     submit = SubmitField('Enter')
 
