@@ -2,8 +2,9 @@ from app import app
 import mongoengine.errors
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user
-from app.classes.data import Event
-from app.classes.forms import EventForm
+from app.classes.data import Event, eventcomment
+from app.classes.forms import EventForm, eventcommentForm
+
 from flask_login import login_required
 import datetime as dt
 
@@ -20,7 +21,8 @@ def eventList():
 @login_required
 def event(eventID):
     thisEvent = Event.objects.get(id=eventID)
-    return render_template('event.html',event=thisEvent)
+    comments = eventcomment.objects(event = thisEvent)
+    return render_template('event.html',event=thisEvent,comments=comments)
 
 @app.route('/event/delete/<eventID>')
 #delete
@@ -97,4 +99,49 @@ def eventEdit(eventID):
 
     return render_template('eventform.html',form=form)
 
+#commenting so cool !!!!
+@app.route('/eventcomment/new/<eventID>', methods=['GET', 'POST'])
+@login_required
+def eventcommentNew(eventID):
+    event = Event.objects.get(id=eventID)
+    form = eventcommentForm()
+    if form.validate_on_submit():
+        neweventcomment = eventcomment(
+            author = current_user.id,
+            event = event,
+            attending = form.attending.data,
+            modify_date = dt.datetime.utcnow
+        )
+        neweventcomment.save()
+        return redirect(url_for('event',eventID=eventID))
+    return render_template('eventcommentform.html',form=form,event=event)
+#edit comments 
+@app.route('/eventcomment/edit/<eventcommentID>', methods=['GET', 'POST'])
+@login_required
+def eventcommentEdit(eventcommentID):
+    editeventcomment = eventcomment.objects.get(id=eventcommentID)
+    if current_user != editeventcomment.author:
+        flash("You can't edit a comment you didn't write.")
+        return redirect(url_for('event',eventID=editeventcomment.event.id))
+    event = Event.objects.get(id=editeventcomment.event.id)
+    form = eventcommentForm()
+    if form.validate_on_submit():
+        editeventcomment.update(
+            #modifydate = dt.datetime.utcnow,
+            attending = form.attending.data
+        )
+        return redirect(url_for('event',eventID=editeventcomment.event.id))
 
+    
+    form.attending.data = editeventcomment.attending
+    
+
+    return render_template('eventcommentform.html',form=form,event=event)   
+#delete
+@app.route('/eventcomment/delete/<eventcommentID>')
+@login_required
+def eventcommentDelete(eventcommentID): 
+    deleteeventcomment = eventcomment.objects.get(id=eventcommentID)
+    deleteeventcomment.delete()
+    flash('The comments were deleted.')
+    return redirect(url_for('event',eventID=deleteeventcomment.event.id)) 

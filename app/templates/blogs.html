@@ -27,16 +27,20 @@
 {% if blogs %}
 <div class="container">
 <div class="row">
+<div class="col">
     {% for blog in blogs %}
+
         <div class="col-6 col-sm-3">
+
+
             {% if blog.image %}
                 <a href="/blog/{{blog.id}}">
                     <img width="200"  class="fred img-thumbnail" src="data:image;base64,{{base64encode(blog.image.read())}}">
                 </a>
                 
             {% endif %}
-        </div>
     {% endfor %}
+</div>
 </div>
 </div>
 {% endif %}

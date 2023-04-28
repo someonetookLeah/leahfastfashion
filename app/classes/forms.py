@@ -11,6 +11,7 @@ from wtforms import StringField, SubmitField, TextAreaField, IntegerField, Selec
 class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
     lname = StringField('Last Name', validators=[DataRequired()]) 
+    bio = StringField('Add Bio', validators=[DataRequired()]) 
     image = FileField("Image") 
     submit = SubmitField('Post')
     role = SelectField('Role', choices=[("Teacher","Teacher"),("Student","Student")])
@@ -27,7 +28,7 @@ class BlogForm(FlaskForm):
     style = StringField('Style', validators=[DataRequired()])
     clothingsize = SelectField("Size", choices=[('Small','Small'),('Medium','Medium'),('Large','Large')])
     subject = StringField('Subject', validators=[DataRequired()])
-    content = TextAreaField('Blog', validators=[DataRequired()])
+    content = TextAreaField('Describe how clothing fits other info etc...', validators=[DataRequired()])
     tag = StringField('Brand', validators=[DataRequired()])
     submit = SubmitField('Enter')
 
@@ -49,4 +50,8 @@ class EventForm(FlaskForm):
     time = StringField('Time', validators=[DataRequired()])
     location = StringField('Location', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class eventcommentForm(FlaskForm):
+    attending = SelectField('Will you be attending?', choices=[("Yes, I'm coming!", "Yes, I'm coming!"),("Next time","Next time")])
     submit = SubmitField('Submit')
