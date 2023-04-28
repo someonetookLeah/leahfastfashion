@@ -31,9 +31,9 @@
             
                 {% endif %}
 
-                
+                Clothing Swap:
                 <a href="/event/{{event.id}}">
-                    Clothing Swap: {{event.day}}
+                    {{event.day}}
                 </a>
                 {% if event.image %}
                 <img width="250" class="img-thumbnail float-start me-2 rounded" src="data:image;base64,{{base64encode(event.image.read())}}">
