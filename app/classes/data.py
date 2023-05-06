@@ -51,7 +51,6 @@ class Blog(Document):
     sale = StringField()
     quality = StringField()
     style = StringField()
-
     subject = StringField()
     content = StringField()
     tag = StringField()

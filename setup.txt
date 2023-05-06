@@ -35,7 +35,8 @@ window pane. Then open a new terminal by going to the Terminal menu at the top o
     with the name of your project.
 
     conda create --name <yourProjectName> python=3
-    conda activate <yourProjectName>
+    conda activate <yourProjectName>conda activate LVFASTFASHION
+
 
 3) now you want to set this to your default environment for this project. go to the View menu 
     above and choose Command Palette...
